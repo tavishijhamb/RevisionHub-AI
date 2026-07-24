@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF | AI Study Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                <h2>AI Study Assistant</h2>
+            </div>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ================= UPLOAD SECTION ================= -->
+
+    <main>
+
+        <section class="upload-section">
+
+            <div class="upload-container">
+
+                <h1>Upload Your Study Material</h1>
+
+                <p>
+                    Upload a PDF and let AI generate summaries, flashcards, and quizzes in seconds.
+                </p>
+
+                <div class="upload-box">
+
+                    <div class="upload-icon">
+                        📄
+                    </div>
+
+                    <h3>Choose a PDF to Upload</h3>
+
+                    <input type="file" id="pdf-upload" accept=".pdf" hidden>
+
+                    <label for="pdf-upload" class="primary-btn">
+                        Browse Files
+                    </label>
+
+                    <p id="file-name"></p>
+
+                    <div class="upload-info">
+                        <p>📁 Supported Format: PDF</p>
+                        <p>📦 Maximum Size: 20 MB</p>
+                    </div>
+
+                </div>
+
+                <button id="continue-btn" class="primary-btn continue-btn">
+                    Continue
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/upload.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generating Content | AI Study Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                <h2>AI Study Assistant</h2>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="processing-section">
+
+            <div class="processing-container">
+
+                <div class="loader"></div>
+
+                <h1 id="processing-title">Generating Summary</h1>
+
+                <p id="processing-description">
+                    Please wait while our AI generates your study material.
+                </p>
+
+                <div class="progress-list">
+
+                    <div class="progress-item completed">
+                        <span class="status">✔</span>
+                        <span>Understanding Document</span>
+                    </div>
+
+                    <div class="progress-item completed">
+                        <span class="status">✔</span>
+                        <span>Identifying Key Concepts</span>
+                    </div>
+
+                    <div class="progress-item active">
+                        <span class="status">⏳</span>
+                        <span id="current-step">Writing Summary</span>
+                    </div>
+
+                    <div class="progress-item">
+                        <span class="status">○</span>
+                        <span id="next-step">Finalizing Content</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/processing-content.js"></script>
+
+</body>
+
+</html>

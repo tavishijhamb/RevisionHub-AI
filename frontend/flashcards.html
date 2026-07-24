@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flashcards | AI Study Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= Navbar ================= -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                <h2>AI Study Assistant</h2>
+            </div>
+
+
+            <ul>
+
+                <li>
+                    <a href="dashboard.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="upload.html">Upload</a>
+                </li>
+
+                <li>
+                    <a href="summary.html">Summary</a>
+                </li>
+
+            </ul>
+
+
+        </nav>
+
+    </header>
+
+    <!-- ================= Flashcards Section ================= -->
+
+
+    <section class="flashcard-section">
+
+
+        <div class="flashcard-container">
+
+
+            <h1>📚 Flashcards</h1>
+
+
+            <p class="flashcard-subtitle">
+                Review important concepts generated from your uploaded PDF.
+            </p>
+
+            <!-- Progress -->
+
+            <div class="flashcard-progress">
+
+
+                <div class="progress-text">
+
+                    <span>Card 1 of 10</span>
+
+                    <span>10%</span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill"></div>
+
+                </div>
+
+
+            </div>
+
+            <!-- Flashcard -->
+
+
+            <div class="flashcard-box">
+
+
+                <!-- Question Side -->
+
+                <div class="card-front">
+
+
+                    <h2>Question</h2>
+
+
+                    <p>
+                        What is Artificial Intelligence?
+                    </p>
+
+
+                </div>
+
+                <!-- Answer Side -->
+
+
+                <div class="card-back">
+
+
+                    <h2>Answer</h2>
+
+
+                    <p>
+                        Artificial Intelligence is the simulation of human intelligence in machines that are programmed
+                        to learn, reason and solve problems.
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Card Controls -->
+
+
+            <div class="flashcard-controls">
+
+
+                <button class="secondary-btn">
+                    ⬅ Previous
+                </button>
+
+
+                <button class="primary-btn" id="flipBtn">
+                    🔄 Flip Card
+                </button>
+
+
+                <button class="secondary-btn">
+                    Next ➡
+                </button>
+
+
+            </div>
+
+            <!-- Bottom Actions -->
+
+
+            <div class="flashcard-actions">
+
+
+                <a href="upload.html" class="secondary-btn">
+                    Generate Again
+                </a>
+
+                <a href="quiz.html" class="primary-btn">
+                    Take Quiz
+                </a>
+
+                <a href="dashboard.html" class="secondary-btn">
+                    Dashboard
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="js/flashcards.js"></script>
+
+</body>
+
+</html>

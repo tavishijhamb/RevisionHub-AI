@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyzing PDF | AI Study Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                <h2>AI Study Assistant</h2>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="processing-section">
+
+            <div class="processing-container">
+
+                <div class="loader"></div>
+
+                <h1>Analyzing Your PDF</h1>
+
+                <p>
+                    Please wait while our AI extracts and analyzes your document.
+                    Once it's ready, you'll be able to generate summaries,
+                    flashcards, or quizzes from your study material.
+                </p>
+
+                <div class="progress-list">
+
+                    <div class="progress-item completed" id="step1">
+                        <span class="status">✔</span>
+                        <span>Uploading PDF</span>
+                    </div>
+
+                    <div class="progress-item completed" id="step2">
+                        <span class="status">✔</span>
+                        <span>Extracting Text</span>
+                    </div>
+
+                    <div class="progress-item active" id="step3">
+                        <span class="status">⏳</span>
+                        <span>Analyzing Content</span>
+                    </div>
+
+                    <div class="progress-item" id="step4">
+                        <span class="status">○</span>
+                        <span>Organizing Topics</span>
+                    </div>
+
+                    <div class="progress-item" id="step5">
+                        <span class="status">○</span>
+                        <span>Preparing Dashboard</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/processing.js"></script>
+
+</body>
+
+</html>

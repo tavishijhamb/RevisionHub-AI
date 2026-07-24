@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz | AI Study Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h2>AI Study Assistant</h2>
+            </div>
+
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="summary.html">Summary</a></li>
+                <li><a href="flashcards.html">Flashcards</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+
+        <div class="quiz-container">
+
+            <h1>Quiz</h1>
+            <p class="quiz-subtitle">
+                Test your understanding of the uploaded notes.
+            </p>
+
+            <!-- Quiz Card -->
+            <div class="quiz-card" id="quiz-card">
+
+                <!-- Question Number -->
+                <div class="quiz-info">
+                    <span id="question-number">Question 1 of 10</span>
+                </div>
+
+                <!-- Progress -->
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+
+                <!-- Question -->
+                <div class="question-box">
+                    <h2 id="question-text">
+                        Which data structure follows the FIFO (First In First Out) principle?
+                    </h2>
+                </div>
+
+                <!-- Options -->
+                <div class="options">
+
+                    <input type="radio" name="answer" id="option1">
+                    <label for="option1" class="option">
+                        <span id="option1-text">Stack</span>
+                    </label>
+
+                    <input type="radio" name="answer" id="option2">
+                    <label for="option2" class="option">
+                        <span id="option2-text">Queue</span>
+                    </label>
+
+                    <input type="radio" name="answer" id="option3">
+                    <label for="option3" class="option">
+                        <span id="option3-text">Tree</span>
+                    </label>
+
+                    <input type="radio" name="answer" id="option4">
+                    <label for="option4" class="option">
+                        <span id="option4-text">Graph</span>
+                    </label>
+
+                </div>
+
+                <!-- Buttons -->
+                <div class="quiz-buttons">
+
+                    <button class="secondary-btn" id="prev-btn">
+                        Previous
+                    </button>
+
+                    <button class="primary-btn" id="next-btn">
+                        Next
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Result Card -->
+            <div class="result-card" id="result-card" style="display: none;">
+
+                <h2>🎉 Quiz Completed!</h2>
+
+                <h1 id="score">8 / 10</h1>
+
+                <p id="message">Excellent work!</p>
+
+                <p>✔ Correct Answers: <span id="correct">8</span></p>
+                <p>✖ Incorrect Answers: <span id="incorrect">2</span></p>
+
+                <div class="result-buttons">
+
+                    <button class="secondary-btn" id="retake-btn">
+                        Retake Quiz
+                    </button>
+
+                    <a href="dashboard.html" class="primary-btn">
+                        Back to Dashboard
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="js/quiz.js"></script>
+
+</body>
+
+</html>
