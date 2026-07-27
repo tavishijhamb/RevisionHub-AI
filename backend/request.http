@@ -1,0 +1,30 @@
+### Test Backend
+
+GET http://localhost:5000/
+###
+
+### Status
+
+GET http://localhost:5000/status
+
+### Test Summary API
+POST http://localhost:5000/generate/summary
+Content-Type: application/json
+
+{}
+
+###
+
+### Test Flashcards API
+POST http://localhost:5000/generate/flashcards
+Content-Type: application/json
+
+{}
+
+###
+
+### Test Quiz API
+POST http://localhost:5000/generate/quiz
+Content-Type: application/json
+
+{}

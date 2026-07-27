@@ -1,33 +1,53 @@
-const steps = document.querySelectorAll(".progress-item");
+document.addEventListener("DOMContentLoaded", () => {
 
-let currentStep = 2;
+    const steps = document.querySelectorAll(".progress-item");
 
-// Function to move to the next step
-function nextStep() {
-
-    // Complete current step
-    steps[currentStep].classList.remove("active");
-    steps[currentStep].classList.add("completed");
-    steps[currentStep].querySelector(".status").innerText = "✔";
-
-    currentStep++;
-
-    // If another step exists, make it active
-    if (currentStep < steps.length) {
-
-        steps[currentStep].classList.add("active");
-        steps[currentStep].querySelector(".status").innerText = "⏳";
-
+    if (steps.length === 0) {
+        console.error("No progress items found.");
+        return;
     }
 
-    // If all steps are finished, redirect
-    else {
+    let currentStep = 2;
 
-        setTimeout(() => {
-            window.location.href = "dashboard.html";
-        }, 2000);
+    function nextStep() {
 
+        if (currentStep >= steps.length) {
+            clearInterval(interval);
+            return;
+        }
+
+        // Complete current step
+        steps[currentStep].classList.remove("active");
+        steps[currentStep].classList.add("completed");
+
+        const currentStatus = steps[currentStep].querySelector(".status");
+        if (currentStatus) {
+            currentStatus.innerText = "✔";
+        }
+
+        currentStep++;
+
+        // Activate next step
+        if (currentStep < steps.length) {
+
+            steps[currentStep].classList.add("active");
+
+            const nextStatus = steps[currentStep].querySelector(".status");
+            if (nextStatus) {
+                nextStatus.innerText = "⏳";
+            }
+
+        } else {
+
+            clearInterval(interval);
+
+            setTimeout(() => {
+                window.location.href = "dashboard.html";
+            }, 2000);
+
+        }
     }
-}
 
-const interval = setInterval(nextStep, 2000);
+    const interval = setInterval(nextStep, 2000);
+
+});

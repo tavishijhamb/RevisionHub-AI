@@ -52,6 +52,11 @@ nav {
     font-size: 28px;
 }
 
+.logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .hero {
     display: flex;
     justify-content: space-between;
@@ -834,8 +839,9 @@ nav ul li a:hover{
     transform: rotateY(180deg);
 }
 
-
-/* Flip Animation (JS will activate this later) */
+.card-front {
+    transform: rotateY(0deg);
+}
 
 .flashcard-box.flipped .card-front {
     transform: rotateY(180deg);
