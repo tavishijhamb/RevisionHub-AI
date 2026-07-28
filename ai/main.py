@@ -81,6 +81,18 @@ def extract_text_from_pdf(file_bytes) -> str:
     return extracted_text
 
 
+def get_extracted_text(notebook_id: str) -> str:
+    """
+    Fetches the already-extracted text for a notebook from in-memory storage.
+    The PDF itself is never re-read here - Stage 1 (upload) is the only place
+    that touches the file; every Stage 2 endpoint just reads the cached text.
+    """
+    notebook = notebooks_db.get(notebook_id)
+    if notebook is None:
+        raise HTTPException(status_code=404, detail="Notebook not found.")
+    return notebook["raw_text"]
+
+
 # ==========================================
 # 4. ENDPOINTS
 # ==========================================
@@ -126,10 +138,7 @@ async def generate_summary(notebook_id: str):
     Generates bullet points matching Person A's requested format:
     { "success": True, "summary": ["...", "..."] }
     """
-    if notebook_id not in notebooks_db:
-        raise HTTPException(status_code=404, detail="Notebook not found.")
-
-    raw_text = notebooks_db[notebook_id]["raw_text"]
+    raw_text = get_extracted_text(notebook_id)
     prompt = f"Provide a list of key summary points from the following text:\n\n{raw_text}"
 
     response = client.models.generate_content(
@@ -155,10 +164,7 @@ async def generate_flashcards(notebook_id: str):
     Generates flashcards matching Person A's requested format:
     { "success": True, "flashcards": [{"question": "...", "answer": "..."}] }
     """
-    if notebook_id not in notebooks_db:
-        raise HTTPException(status_code=404, detail="Notebook not found.")
-
-    raw_text = notebooks_db[notebook_id]["raw_text"]
+    raw_text = get_extracted_text(notebook_id)
     prompt = f"Generate 5 key flashcards (question and concise answer) from this text:\n\n{raw_text}"
 
     response = client.models.generate_content(
@@ -184,10 +190,7 @@ async def generate_quiz(notebook_id: str):
     Generates quiz matching Person A's requested format:
     { "success": True, "quiz": [{"question": "...", "options": [...], "answer": "..."}] }
     """
-    if notebook_id not in notebooks_db:
-        raise HTTPException(status_code=404, detail="Notebook not found.")
-
-    raw_text = notebooks_db[notebook_id]["raw_text"]
+    raw_text = get_extracted_text(notebook_id)
     prompt = f"Generate a 5-question multiple-choice quiz with 4 options and the exact correct answer string from this text:\n\n{raw_text}"
 
     response = client.models.generate_content(
