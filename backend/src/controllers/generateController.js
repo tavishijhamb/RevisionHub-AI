@@ -1,76 +1,95 @@
-exports.getSummary = (req, res) => {
+const { getExtractedText } = require("../data/studyData");
 
-    res.json({
-        success: true,
-        summary: [
-            "Operating Systems manage computer hardware and software resources.",
-            "Processes are programs currently executing.",
-            "CPU scheduling improves performance.",
-            "Memory management uses paging and segmentation.",
-            "Deadlocks occur when processes wait indefinitely."
-        ]
-    });
+const {generateSummary, generateFlashcards, generateQuiz} = require("../services/aiService");
 
-};
+const getSummary = async (req, res) => {
 
-exports.getFlashcards = (req, res) => {
+    try {
 
-    res.json({
-        success: true,
-        flashcards: [
-            {
-                question: "What is Artificial Intelligence?",
-                answer: "Artificial Intelligence is the simulation of human intelligence in machines."
-            },
-            {
-                question: "What is Machine Learning?",
-                answer: "Machine Learning is a subset of AI that enables systems to learn from data."
-            },
-            {
-                question: "What is Deep Learning?",
-                answer: "Deep Learning uses neural networks with multiple layers to solve complex problems."
-            }
-        ]
-    });
+        const text = getExtractedText();
+
+        if (!text) {
+            return res.status(400).json({
+                success: false,
+                message: "No PDF uploaded yet."
+            });
+        }
+
+        const result = await generateSummary(text);
+
+        res.status(200).json(result);
+
+    } catch (err) {
+
+        console.error("Summary Error:", err);
+
+        res.status(500).json({
+            success: false,
+            message: "Summary generation failed."
+        });
+
+    }
 
 };
 
-exports.getQuiz = (req, res) => {
+const getFlashcards = async (req, res) => {
 
-    res.json({
-        success: true,
-        quiz: [
-            {
-                question: "Which software manages computer hardware?",
-                options: [
-                    "Compiler",
-                    "Operating System",
-                    "Browser",
-                    "Database"
-                ],
-                answer: "Operating System"
-            },
-            {
-                question: "Which is a programming language?",
-                options: [
-                    "Python",
-                    "Windows",
-                    "Chrome",
-                    "Linux"
-                ],
-                answer: "Python"
-            },
-            {
-                question: "CPU stands for?",
-                options: [
-                    "Central Processing Unit",
-                    "Computer Processing Unit",
-                    "Central Program Unit",
-                    "Computer Program Utility"
-                ],
-                answer: "Central Processing Unit"
-            }
-        ]
-    });
+    try {
+
+        const text = getExtractedText();
+
+        if (!text) {
+            return res.status(400).json({
+                success: false,
+                message: "No PDF uploaded yet."
+            });
+        }
+
+        const result = await generateFlashcards(text);
+
+        res.status(200).json(result);
+
+    } catch (err) {
+
+        console.error("Flashcards Error:", err);
+
+        res.status(500).json({
+            success: false,
+            message: "Flashcard generation failed."
+        });
+
+    }
 
 };
+
+const getQuiz = async (req, res) => {
+
+    try {
+
+        const text = getExtractedText();
+
+        if (!text) {
+            return res.status(400).json({
+                success: false,
+                message: "No PDF uploaded yet."
+            });
+        }
+
+        const result = await generateQuiz(text);
+
+        res.status(200).json(result);
+
+    } catch (err) {
+
+        console.error("Quiz Error:", err);
+
+        res.status(500).json({
+            success: false,
+            message: "Quiz generation failed."
+        });
+
+    }
+
+};
+
+module.exports = {getSummary, getFlashcards, getQuiz};

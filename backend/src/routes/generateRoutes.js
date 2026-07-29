@@ -2,11 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const {
-    getSummary,
-    getFlashcards,
-    getQuiz
-} = require("../controllers/generateController");
+const {getSummary, getFlashcards, getQuiz} = require("../controllers/generateController");
 
 router.post("/generate/summary", getSummary);
 

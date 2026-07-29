@@ -5,6 +5,9 @@ from typing import List
 # 1. DOCUMENT UPLOAD RESPONSE SCHEMA
 # ==========================================
 
+class TextUploadRequest(BaseModel):
+    raw_text: str
+
 class UploadResponse(BaseModel):
     """
     Returned immediately after PDF ingestion to confirm 
